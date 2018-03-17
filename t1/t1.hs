@@ -62,4 +62,7 @@ isInt x = length(filter(\n-> not(elem n "1234567890")) x)  <= 0
 lastName :: String -> String 
 lastName str = last (words str)
 
+--- exercicio 9 
 
+userName :: String -> String
+userName x = (map (toLower) (take 1 x)) ++ (map(toLower)(lastName x))
