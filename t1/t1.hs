@@ -1,3 +1,5 @@
+import Data.Char
+
 --- exercicio 1
 
 isVowel :: Char -> Bool
@@ -66,3 +68,30 @@ lastName str = last (words str)
 
 userName :: String -> String
 userName x = (map (toLower) (take 1 x)) ++ (map(toLower)(lastName x))
+
+---exercicio 10
+
+encodeName :: String -> String
+encodeName x = map mudaVogal x
+
+mudaVogal :: Char -> Char
+mudaVogal c
+    | (c == 'a') || (c == 'A') = '4'
+    | (c == 'e') || (c == 'E') = '3'
+    | (c == 'i') || (c == 'I') = '2'
+    | (c == 'o') || (c == 'O') = '1'
+    | (c == 'u') || (c == 'U') = '0'
+    | otherwise = c
+    
+---exercicio 11
+betterEncodeName :: String -> String
+betterEncodeName x = concatMap mudaVogal2 x
+
+mudaVogal2 :: Char -> String
+mudaVogal2 c
+    | (c == 'a') || (c == 'A') = "4"
+    | (c == 'e') || (c == 'E') = "3"
+    | (c == 'i') || (c == 'I') = "1"
+    | (c == 'o') || (c == 'O') = "0"
+    | (c == 'u') || (c == 'U') = "00"
+    | otherwise = [c]
