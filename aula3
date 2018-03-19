@@ -1,0 +1,26 @@
+aula3 
+ --- exercicio 1
+ 
+ addSuffix :: String -> [String] -> [String]
+ addSuffix x str = [n ++ x| n <- str] 
+ 
+ --- exercicio 2
+ 
+ countShorts :: [String] -> Int
+ countShorts x = length [ x | n <- x, length(n) < 5]
+ 
+ --- exercicio 3
+ --- a)
+ --- retorna todos os conjuntos que x de 2 e 4 que sao os pares no conjunto e ---que os y forem de 2 a 6 e que sejam ímpares, ou seja qualquer conjunto ---que exista variando os valores de x de 2 ou 4 e para o y variando entre --- 3 e que seja maior que o x.
+ 
+ --- b)
+ --- ["lazyfrog","lazydog","bigfrog","bigdog"]
+
+ --- c)
+ --- irá formar uma lista de Strings de uma letra com um traço que nao sejam vogais
+ --- Exemplo ["p-","r-","l-"...]
+ 
+ --- exercicio 4
+ 
+ genRects :: Int -> (Int,Int) -> [(Float,Float,Float,Float)]
+ genRects n (x,y) = [(a,b,c,d) | a<- take n [fromIntegral x,fromIntegral x+5.5..], b <- [fromIntegral y], c <- (5.5), d <- (5.5)]
