@@ -95,3 +95,7 @@ mudaVogal2 c
     | (c == 'o') || (c == 'O') = "0"
     | (c == 'u') || (c == 'U') = "00"
     | otherwise = [c]
+
+--- exercicio 12
+func :: [String] -> [String]
+func x = map (\n -> if length n < 10 then n ++ replicate (10-length n) '.' else take 10 n) x
