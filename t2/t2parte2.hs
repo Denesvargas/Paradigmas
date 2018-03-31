@@ -27,3 +27,8 @@ auxBin2Dec [] _ = 0
 auxBin2Dec (x:xs) y = x*(2^(y)) + auxBin2Dec xs (y-1)
 
 --- exercicio 4
+bin2dec' :: [Int] -> Int
+bin2dec' [] = undefined
+bin2dec' bits = sum (zipWith (\x y-> x*(2^y)) bits [(length bits - 1), (length bits - 2)..])
+
+--- exercicio 5
