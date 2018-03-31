@@ -13,3 +13,8 @@ isBin x
   | otherwise = soBin (tail x)
 
 --- exercicio 2
+
+isBin' :: String -> Bool
+isBin' str = not(any (\x -> x /= '0' && x /= '1') str) && length str /= 0
+
+-- exercicio 3
