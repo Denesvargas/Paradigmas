@@ -32,3 +32,11 @@ bin2dec' [] = undefined
 bin2dec' bits = sum (zipWith (\x y-> x*(2^y)) bits [(length bits - 1), (length bits - 2)..])
 
 --- exercicio 5
+dec2bin :: Int -> [Int]
+dec2bin 0 = []
+dec2bin x = reverse (aux x)
+
+aux :: Int -> [Int]
+aux x = (x `mod` 2):(dec2bin (x `div` 2))
+
+--- exercicio 6
