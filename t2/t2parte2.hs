@@ -1,3 +1,5 @@
+import Data.Char
+
 --- exercicio 1
 
 soBin :: String -> Bool
@@ -40,3 +42,14 @@ aux :: Int -> [Int]
 aux x = (x `mod` 2):(dec2bin (x `div` 2))
 
 --- exercicio 6
+
+dec2hex :: Int -> String
+dec2hex x = toString (reverse (aux2 x))
+
+toString :: [Int] -> String
+toString [] = []
+toString (x:xs) = (intToDigit x):(toString xs) 
+
+aux2 :: Int -> [Int]
+aux2 0 = []
+aux2 x = (x `mod` 16):(aux2 (x `div` 16))
