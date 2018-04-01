@@ -58,3 +58,7 @@ countChar c str = length (filter (== c) str)
 freqs :: String -> [Float]
 freqs str = [percent (countChar x str) (countValids str) | x <- ['a'..'z'] ]
 
+--- exercicio 6
+
+positions :: Float -> [Float] -> [Int]
+positions x str = map snd $ filter (\n-> fst n == x) (zip str [0..])
