@@ -53,3 +53,8 @@ countValids str = length (filter isLower str)
 countChar :: Char -> String -> Int
 countChar c str = length (filter (== c) str)
 
+--- exercicio 5
+
+freqs :: String -> [Float]
+freqs str = [percent (countChar x str) (countValids str) | x <- ['a'..'z'] ]
+
