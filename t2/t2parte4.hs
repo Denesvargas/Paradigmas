@@ -47,3 +47,9 @@ encodeStr str x = map (\n -> shiftChar n x) str
 
 countValids :: String -> Int
 countValids str = length (filter isLower str)
+
+--- exercicio 4
+
+countChar :: Char -> String -> Int
+countChar c str = length (filter (== c) str)
+
