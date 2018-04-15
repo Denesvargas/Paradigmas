@@ -29,10 +29,17 @@ zipmult(L1,L2,L3) :-
 potencias(N,L) :-
     N >= 0,
     pot(N,0,L).
-
+    
 pot(N,N,[]).
 pot(N,J,L) :-
     L = [H1|T1],
     H1 is 2**J,
     JF is J+1,
     pot(N,JF,T1).
+
+% Exercício 7
+positivos([],[]).
+positivos(L1,L2) :-
+    L1 = [H1|T1],
+    L2 = [H2|T2],
+    (H1 > 0 -> H2 is H1, positivos(T1,T2); positivos(T1,L2)).
