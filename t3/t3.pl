@@ -43,3 +43,10 @@ positivos(L1,L2) :-
     L1 = [H1|T1],
     L2 = [H2|T2],
     (H1 > 0 -> H2 is H1, positivos(T1,T2); positivos(T1,L2)).
+
+% Exercício 8
+mesmaPosicao(_,[],[]).
+mesmaPosicao(A,L1,L2) :-
+    L1 = [H1|T1],
+    L2 = [H2|T2],
+    (A == H1 -> H1 == H2; mesmaPosicao(A,T1,T2)).
