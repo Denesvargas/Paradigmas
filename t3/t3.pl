@@ -25,3 +25,14 @@ zipmult(L1,L2,L3) :-
     H3 is H1*H2,
     zipmult(T1,T2,T3).
 
+% Exercício 6
+potencias(N,L) :-
+    N >= 0,
+    pot(N,0,L).
+
+pot(N,N,[]).
+pot(N,J,L) :-
+    L = [H1|T1],
+    H1 is 2**J,
+    JF is J+1,
+    pot(N,JF,T1).
