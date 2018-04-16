@@ -80,3 +80,12 @@ comissao(K,L,[X|Xs]) :-
 
 aux(X,[X|L],L).
 aux(X,[_|L],R) :- aux(X,L,R).
+
+% Exercício 10
+azulejos(0,0) :- !.
+azulejos(NA,NQ) :-
+    NA >= 0,
+    R is floor(sqrt(NA)),
+    NA1 is NA - (R**2),
+    azulejos(NA1,NQD),
+    NQ is NQD + 1.
