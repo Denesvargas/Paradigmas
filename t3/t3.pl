@@ -50,3 +50,33 @@ mesmaPosicao(A,L1,L2) :-
     L1 = [H1|T1],
     L2 = [H2|T2],
     (A == H1 -> H1 == H2; mesmaPosicao(A,T1,T2)).
+
+% Exercício 9
+/*comissao2(0,_,[]).
+comissao2(NP,LP,C) :-
+    NP1 is NP - 1,
+    C = [H|T],
+    comissaoAux(H,LP,R),
+    comissao2(NP1,R,T).
+
+comissaoAux(H,[H|T],T).
+comissaoAux(X,[_|T],R) :- comissaoAux(X,T,R).
+
+
+comb(0,_,[]).
+comb(N,[X|T],[X|Comb]):-
+    N>0,
+    N1 is N-1,
+    comb(N1,T,Comb).
+
+comb(N,[_|T],Comb):- N>0,comb(N,T,Comb).*/
+
+comissao(0,_,[]).
+comissao(K,L,[X|Xs]) :-
+    K > 0,
+ 	aux(X,L,R),
+    K1 is K-1,
+    comissao(K1,R,Xs).
+
+aux(X,[X|L],L).
+aux(X,[_|L],R) :- aux(X,L,R).
