@@ -30,7 +30,7 @@ potencias(N,L) :-
     N >= 0,
     pot(N,0,L).
     
-pot(N,N,[]).
+pot(N,N,[]) :- !.
 pot(N,J,L) :-
     L = [H1|T1],
     H1 is 2**J,
