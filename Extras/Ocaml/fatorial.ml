@@ -7,10 +7,10 @@ let fatorial x = List.fold_left mul 1 (crialist x);;
 let rec crialist x = if x <= 1 then x::[] else x::crialist (x-1);;
 let fatorial x = List.fold_left (fun x y -> x*y) 1 (crialist x);;
 
-/*Para executar as funçoes coloque cada uma no interpretador e depois diga o nome da função com seus argumentos.
-  Exemplo# fatorial 5;; */
+(*Para executar as funçoes coloque cada uma no interpretador e depois diga o nome da função com seus argumentos.
+  Exemplo# fatorial 5;; 
 
-/*Em Ocaml ao contrário da função List.map(semelhante ao 'map' do Haskell) que executa uma função dentro de cada elemento de uma 
+  Em Ocaml ao contrário da função List.map(semelhante ao 'map' do Haskell) que executa uma função dentro de cada elemento de uma 
   lista e retorna outra lista a função List.fold_left usa tres argumentos:
   1º argumento: uma função a qual deve ser aplicada entre o 2º argumento e cada elemento do 3º argumento que é uma lista.
   2º argumento: um valor inicial, pode servir também como elemento de teste ou de partida.
@@ -18,18 +18,18 @@ let fatorial x = List.fold_left (fun x y -> x*y) 1 (crialist x);;
   mas caso não sejam deve-se ficar atento a isso, para as devidas conversões de tipo) podendo variar o tipo de dados.
   Na execução após aplicar a função(1º argumento) com o primeiro elemento da lista(3º argumento) com o valor inicial(2º argumento),
   o segundo elemento da lista usará o resultado do primeiro para reaplicar a função.
-  Para simplificar veja os exemplos mais elementares:
+  Para simplificar veja os exemplos mais elementares:*)
   
   List.fold_left (+) 0 [1; 2; 3; 4];;
-  saída:
+  (*saída:
   -: int = 10;
   
   O que o exemplo acima fez, foi somar o valor 0 com o 1 depois soma o 2 com o resultado da primeira soma e assim sucessivamente
   até o final da lista.
-  Outro exemplo:
+  Outro exemplo:*)
   
   List.fold_left (^) "/" ["Denes "; "Vargas "; "Teixeira"];;
-  saída: 
+  (*saída: 
   -: string = "/Denes Vargas Teixeira"
   
   Como pode ser notado nesse exemplo acima, não necessita ser numeros para usa-la, além disso ela utiliza o segunto argumento
@@ -42,5 +42,5 @@ let fatorial x = List.fold_left (fun x y -> x*y) 1 (crialist x);;
   A linguagem Ocaml é muito semelhante a linguagem Haskell pois ambas são funcionais e fortemente tipadas. Os testes das funções
   em Ocaml foram feitos no interpretador online da linguagem disponível em: https://try.ocamlpro.com/
   Material didático da linguagem disponível em: https://ocaml.org/learn/tutorials/
-  */
+  *)
 
