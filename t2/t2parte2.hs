@@ -39,7 +39,8 @@ dec2bin 0 = []
 dec2bin x = reverse (aux x)
 
 aux :: Int -> [Int]
-aux x = (x `mod` 2):(dec2bin (x `div` 2))
+aux 1 = [1]
+aux x = (x `mod` 2):(aux (x `div` 2))
 
 --- exercicio 6
 
