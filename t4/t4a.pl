@@ -39,3 +39,23 @@ regra5(L) :- sucesso(A), banda(B), nextto(B,A,L).
 % Z é um sucesso de rock.
 regra6(N) :- sucesso(N).
     
+    
+cdindependente(L) :-
+    regra1(L),
+	regra2(L),
+    regra3(L),
+    regra4(L),
+    regra5(L),
+    regra6(z),
+    !.
+    
+/*Questão 11. Qual das seguintes alternativas poderia
+  ser a ordem das músicas no CD, da primeira
+  para a sétima faixa?
+  (A) T, W, V, S, Y, X, Z - cdindependente([t,w,v,s,y,x,z]).
+  (B) V, Y, T, S, W, Z, X - cdindependente([v,y,t,s,w,z,x]).
+  (C) X, Y, W, S, T, Z, S - cdindependente([x,y,w,s,t,z,s]).
+  (D) Y, T, W, S, X, Z, V - cdindependente([y,t,w,s,x,z,v]).
+  (E) Z, T, X, W, V, Y, S - cdindependente([z,t,x,w,v,y,s]).
+  correta é a letra D.
+*/
