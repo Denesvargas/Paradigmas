@@ -42,7 +42,7 @@ regra6(N) :- sucesso(N).
     
 cdindependente(L) :-
     regra1(L),
-	regra2(L),
+    regra2(L),
     regra3(L),
     regra4(L),
     regra5(L),
