@@ -1,4 +1,7 @@
-{-Questão 1. Para comemorar o aniversário de Cíntia, ela e mais quatro amigas – Alice, Bia, Dirce
+{-Questao Obi 2014: https://olimpiada.ic.unicamp.br/static/extras/obi2014/provas/ProvaOBI2014_f1i1.pdf
+Modalidade iniciação, Nivel 1.
+
+Questão 1. Para comemorar o aniversário de Cíntia, ela e mais quatro amigas – Alice, Bia, Dirce
 e Eunice – foram almoçar juntas no restaurante da escola. As mesas são redondas e acomodam
 exatamente cinco pessoas. Cíntia e Dirce sentam-se uma ao lado da outra. Alice e Bia não sentam-se
 uma ao lado da outra. As duas amigas sentadas ao lado de Eunice são:
