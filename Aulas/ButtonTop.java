@@ -30,8 +30,8 @@ public class ButtonTop {
       circulo.desenha(1, panel);
     });
     lb.setOnMousePressed((MouseEvent e) -> {
-      Desenha circulo = new Desenha();
-      circulo.desenha(2, panel);
+      Desenha linha = new Desenha();
+      linha.desenha(2, panel);
     });
   }  
 }
