@@ -17,7 +17,6 @@ public class JavaFXApplication1 extends Application {
     bp.setCenter(panel);
     buttons.setMenu(bp);
     buttons.pressiona(panel);
-    buttons.selecionaFormato();
     Scene scene = new Scene(bp, 600, 500);
     stage.setScene(scene);
     stage.show();
