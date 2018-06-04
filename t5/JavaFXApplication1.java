@@ -14,9 +14,12 @@ public class JavaFXApplication1 extends Application {
     BorderPane bp = new BorderPane();
     Menus buttons = new Menus();
     Pane panel = new Pane();
+    panel.setStyle("-fx-background-color: #FFFFFF;");
+    Grafo lnos = new Grafo();
+    Aresta lline = new Aresta();
     bp.setCenter(panel);
     buttons.setMenu(bp);
-    buttons.pressiona(panel);
+    buttons.pressiona(panel, lnos, lline);
     Scene scene = new Scene(bp, 600, 500);
     stage.setScene(scene);
     stage.show();
