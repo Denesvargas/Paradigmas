@@ -1,6 +1,3 @@
-
-package javafxapplication1;
-
 import java.awt.geom.Line2D;
 import java.io.File;
 import java.io.FileNotFoundException;
