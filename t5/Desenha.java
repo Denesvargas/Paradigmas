@@ -1,5 +1,3 @@
-package javafxapplication1;
-
 import javafx.scene.control.ColorPicker;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
