@@ -4,7 +4,6 @@ package javafxapplication1;
 import java.awt.geom.Line2D;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
@@ -130,72 +129,5 @@ public class Grafo {
   
   public String getCorHex(Color cor) {
     return String.format("#%02X%02X%02X", (int)(cor.getRed() * 255), (int)(cor.getGreen() * 255), (int)(cor.getBlue() * 255));
-  }
-}
-
-  
-  public boolean same_pointFim(Line line, Line line2){
-    return ((line.getEndX() == line2.getEndX() && line.getEndY() == line2.getEndY()));
-  }
-  
-  public boolean same_pointIniFim(Line line, Line line2){
-    return (line.getStartX() != line2.getEndX() && line.getStartY() != line2.getEndY());
-  }
-  
-  public boolean other_point(Line line, Line line2){
-    if(!same_pointIni(line, line2))
-      if(!same_pointFim(line,line2))
-        if(same_pointIniFim(line, line2))
-          if(same_pointIniFim(line2, line))
-            return true;
-    return false;
-  }
-  
-  public void clear(){
-    lline.clear();
-  }
-  
-  public int num_elem(){
-    return lline.size();
-  }
-} 
-
-public class Grafo {
-  public ArrayList<Circle> lno = new ArrayList();
-  
-  public void add_circle(Circle c){
-    lno.add(c);
-  }
-  
-  public Circle get_circle(int ind){
-    return  lno.get(ind);
-  }
-  
-  public int sobre_circ(double x, double y){
-    for(int i = 0; i < lno.size(); i++){
-      if(lno.get(i).contains(x, y)){
-        return i;
-      }
-    }
-    return -1;
-  }
-  
-  public double posX(int ind){
-    return lno.get(ind).getCenterX();
-  }
-  
-  public double posY(int ind){
-    return lno.get(ind).getCenterY();
-  }
-  
-  public void clear(){
-    lno.clear();
-  }
-  
-  public int num_elem(){
-    return lno.size();
-  }
-  public void saveSvg(String fileName){
-      
   }
 }
