@@ -1,5 +1,7 @@
 package javafxapplication1;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Optional;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -13,12 +15,13 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class Menus {
   private Button gb = new Button("Grafo");
@@ -72,49 +75,54 @@ public class Menus {
     sl.setOrientation(Orientation.VERTICAL);
   }
   
-  public void pressiona(Pane panel, Grafo lnos, Aresta lline){
+  public void pressiona(Pane panel, Grafo grafo){
     Desenha format = new Desenha();
     gb.setOnMousePressed((MouseEvent e) -> {
-      format.desenha(1, panel, cp, lnos, lline);
+      format.desenha(1, panel, cp, grafo);
     });
     ab.setOnMousePressed((MouseEvent e) -> {
-      format.desenha(2, panel, cp, lnos, lline);
+      format.desenha(2, panel, cp, grafo);
     });
     sl.valueProperty().addListener(new ChangeListener<Number>() {
       public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val){
         format.changeTam((double) new_val);
       }
     });
+  }
+  
+  public void press_newGraph(Pane panel, Grafo grafo){
     ng.setOnMousePressed((MouseEvent e) -> {
       panel.getChildren().clear();
-      lnos.clear();
-      lline.clear();
+      grafo.clear();
     });
+  }
+  
+  public void press_statis(Grafo grafo){
     estb.setOnMousePressed((MouseEvent e) -> {
       Alert alert = new Alert(AlertType.INFORMATION);
       alert.setTitle("Estatisticas");
       alert.setHeaderText(null);
-      alert.setContentText("Numero de Vertices: " + lnos.num_elem() + "\nNumero de arestas: " 
-        + lline.num_elem() + "\nNumero de arestas sobrepostas: " + lline.numintersec());
+      alert.setContentText("Numero de Vertices: " + grafo.size_no()+ "\nNumero de arestas: " 
+        + grafo.size_lines()+ "\nNumero de arestas sobrepostas: " + grafo.numintersec());
       alert.showAndWait();
     });
+  }
+  
+  public void press_save(Stage stage, Grafo grafo){
     svgb.setOnAction((ActionEvent e) -> {
-        TextInputDialog dialog = new TextInputDialog("grafo");
-        dialog.setTitle("Salvar Grafo");
-        dialog.setHeaderText("Salvar grafo em SVG");
-        dialog.setContentText("Digite o nome do arquivo:");
-
-        Optional<String> result = dialog.showAndWait();
-        if (result.isPresent()) {
-            //lnos.saveSvg(result.get());
-            //lline.saveSvg(result.get());
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Salvar");
-            alert.setHeaderText(null);
-            alert.setContentText(result.get() + ".html" + " salvo com sucesso.");
-            alert.showAndWait();
+      FileChooser fileChooser = new FileChooser();
+      fileChooser.setTitle("Save");
+      File file = fileChooser.showSaveDialog(stage);
+      if (file != null) {
+        try { 
+          grafo.makeSvg(file);
+        }catch (FileNotFoundException ex) {
         }
+      }
     });
+  }
+  
+  public void press_Exit(){
     sb.setOnAction((ActionEvent e) -> {
       Alert alert = new Alert(AlertType.CONFIRMATION);
       alert.setTitle("Sair");
@@ -126,5 +134,4 @@ public class Menus {
       }
     });
   }
-  
 }
