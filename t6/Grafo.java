@@ -17,7 +17,7 @@ public class Grafo {
     for(int i = 0; i < vertices; i++)
       criavertrandom();
     criarestrandom(vertices);
-    while(numintersec() == 0){
+    while(numintersec() == 0 && vertices > 3){
       lno.clear();
       lline.clear();
       for(int i = 0; i < vertices; i++)
